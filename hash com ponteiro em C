@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define TAM 10
+int tabela[TAM];
+
+void mostrar(){
+     int i;
+     for(i = 0; i < TAM; i++){
+           printf("[%d] = %d\n", i, tabela[i]);
+     }
+}
+     
+int funcaoHash(int chave){
+    return chave % TAM;
+}
+     
+void inserir(int chave){
+     int posicao;
+     posicao = funcaoHash(chave);
+     tabela[posicao] = chave;
+}
+
+int main(){
+    
+    inserir(23);
+    inserir(44);
+    inserir(72);
+    inserir(18);
+    
+    mostrar();  
+    
+    return 0;
+}
